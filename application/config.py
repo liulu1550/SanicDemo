@@ -1,7 +1,7 @@
 
 class BaseConfig(object):
     # 禁用或启用访问日志
-    ACCESS_LOG = False
+    ACCESS_LOG = True
     # 控制应用程序是否在文件更改时自动重新加载
     AUTO_RELOAD = False
     # 未捕获和处理异常时的错误响应格式

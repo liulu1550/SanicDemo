@@ -2,6 +2,7 @@ from sanic import Sanic
 
 from application.config import BaseConfig
 from application.src import register_blueprint
+from libs import setup_exception_handlers
 from listener import register_listener
 from middleware import register_middleware
 
@@ -17,6 +18,9 @@ def create_app():
     register_listener(app)
     # 注册中间件
     register_middleware(app)
+    # 注册异常
+    setup_exception_handlers(app)
     # 注册路由
     register_blueprint(app)
+
     return app
