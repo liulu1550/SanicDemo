@@ -21,4 +21,6 @@ class BaseConfig(object):
     # 响应处理需要多长时间 （秒）
     RESPONSE_TIMEOUT = 600
     # 是否覆盖循环策略, win平台不支持，将设置为False
-    USE_UVLOOP = True
+    USE_UVLOOP = False
+    # 程序API基础路径
+    API_BASIC_PATH = "api"

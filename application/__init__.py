@@ -1,6 +1,9 @@
 from sanic import Sanic
 
 from application.config import BaseConfig
+from application.src import register_blueprint
+from listener import register_listener
+from middleware import register_middleware
 
 
 def create_app():
@@ -11,4 +14,9 @@ def create_app():
     app: Sanic = Sanic(__name__)
     app.update_config(BaseConfig)
     # 注册监听
-    listener(app)
+    register_listener(app)
+    # 注册中间件
+    register_middleware(app)
+    # 注册路由
+    register_blueprint(app)
+    return app
