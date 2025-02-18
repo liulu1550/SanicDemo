@@ -4,6 +4,8 @@ from curl_cffi import requests
 from curl_cffi.requests import BrowserTypeLiteral
 from loguru import logger
 
+from libs.exceptions import CustomException
+
 
 class CurlClient:
     def __init__(
@@ -44,8 +46,8 @@ class CurlClient:
                 )
                 return response
         except Exception as e:
-            logger.error(f"Request failed: {e}")
-            raise e
+            logger.error(f"请求平台出错: {e}")
+            raise CustomException(message=str(e))
 
     async def http_get(
             self, url,

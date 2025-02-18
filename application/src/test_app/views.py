@@ -13,8 +13,5 @@ from libs.exceptions import CustomException, UnauthorizedError
 
 async def test(request):
     client = CurlClient()
-    try:
-        res = await client.http_get("http://httpbin.org/get")
-    except Exception as e:
-        raise CustomException(message=str(e))
+    res = await client.http_get("http://httpbin.org/get", proxy="http://125.109.61.4:15001")
     return json_success_response(res.json())
